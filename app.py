@@ -26,7 +26,8 @@ def unauthorized_handler():
 # ユーザー登録フォームの表示・登録処理
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method == "POST" and request.form["name"] and request.form['password'] and request.form["email"]:
+    if request.method == "POST" and request.form["name"] and request.form['password'] and request.form["email"
+                                                                                                       ]:
         if User.select().where(User.name == request.form["name"]).first():
             flash("その名前はすでに使われています")
             return redirect(request.url)
